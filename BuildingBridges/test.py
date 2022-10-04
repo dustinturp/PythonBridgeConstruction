@@ -73,32 +73,11 @@ def examine_matrix(m : list) -> list:
     positions_of_cities = []
     positions_of_water = []
     
-    #First Row
-    print('First Row')
-    positions_of_cities2 = []
-    # for i in top_row: ## change to enumerate
-    #     print(i)
-    #     if i == '#': # skip first value
-    #         total_city_count += 1
-    #         positions_of_cities.append((1, [i])) #top_row.index(i)
-    #     if i =='.':
-    #         total_water_count += 1
-    #         positions_of_water.append((1, top_row.index(i)))
-        # if current_value and i[-1] == "#": # no bridge needed
-        #     print(" contains two # next to each other")
+    # First row
+    count_features(top_row, total_city_count, '#', positions_of_cities, 1)
+    count_features(top_row, total_water_count, '.', positions_of_water, 1)
 
-    # second attempt trying to add position of array
-    #this wil set I to the index
-    # for i in range(len(top_row)):
-    #     print(i)
-    #     total_city_count += 1
-    #     if top_row[i] == '#':
-    #         positions_of_cities.append((1, i))
-
-
-    # middle_row
-    # print('Second Row')
-    # count_features2(list_to_count, count_list, match, position_list, list_num):
+    # Second row
     count_features(middle_row, total_city_count, '#', positions_of_cities, 2)
     count_features(middle_row, total_water_count, '.', positions_of_water, 2)
 
@@ -106,7 +85,6 @@ def examine_matrix(m : list) -> list:
     count_features(bottom_row, total_city_count, '#', positions_of_cities, 3)
     count_features(bottom_row, total_water_count, '.', positions_of_water, 3)
             
-    
     print('city count: ', total_city_count,
      ' water count: ', total_water_count,
      ' positions of cities list1:', positions_of_cities)
